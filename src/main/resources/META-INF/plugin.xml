@@ -1,0 +1,47 @@
+<idea-plugin>
+
+    <id>com.app.DrinkWaterReminder</id>
+
+    <name>HydratorIO</name>
+    <version>1.0.0</version>
+    <vendor email="walidjimmy14@gmail.com">WaEl.io</vendor>
+
+    <description>
+        <![CDATA[
+            <h2>Water Reminder Plugin for IntelliJ</h2>
+            <p>
+                A lightweight and simple plugin designed to help developers stay hydrated by reminding you to drink water at regular intervals.
+            </p>
+            <ul>
+                <li><strong>Customize reminder intervals</strong> to fit your schedule.</li>
+                <li>Receive <strong>non-intrusive notifications</strong> while you code, keeping your workflow uninterrupted.</li>
+                <li>Stay hydrated and maintain focus, energy, and overall health during long coding sessions.</li>
+            </ul>
+            <p>
+                Perfect for developers who spend extended hours working in IntelliJ and need a gentle nudge to take care of their well-being.
+            </p>
+        ]]>
+    </description>
+
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <notificationGroup id="WaterReminder" displayType="STICKY_BALLOON"/>
+
+        <applicationService serviceImplementation="com.app.drinkwaterreminder.ReminderService"/>
+
+        <applicationService serviceImplementation="com.app.drinkwaterreminder.ReminderSettingsState"/>
+
+        <projectConfigurable instance="com.app.drinkwaterreminder.ReminderSettingsConfigurable"
+                             displayName="HydratorIO Settings"/>
+    </extensions>
+
+
+    <application-components>
+        <component>
+            <implementation-class>com.app.drinkwaterreminder.ReminderService</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>

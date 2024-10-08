@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DrinkWaterReminder:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DrinkWaterReminder_jar</output-path>
+    <root id="archive" name="DrinkWaterReminder.jar" />
+  </artifact>
+</component>
