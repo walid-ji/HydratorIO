@@ -1,6 +1,5 @@
 package com.app.drinkwaterreminder;
 
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.ui.Messages;
 
@@ -47,21 +46,14 @@ public class ReminderSettingsConfigurable implements Configurable {
 
     @Override
     public void apply() {
-        ReminderSettingsState.getInstance().reminderInterval = (Integer) intervalSpinner.getValue();
-
         // Save the new interval to the state
         ReminderSettingsState.getInstance().reminderInterval = (Integer) intervalSpinner.getValue();
 
         // Ask the user if they want to restart the IDE
-        int result = Messages.showYesNoDialog(
-                "You have changed the reminder interval. A restart of IntelliJ IDEA is required for the changes to take effect. Do you want to restart now?",
-                "Restart Required",
-                Messages.getQuestionIcon()
+        Messages.showInfoMessage(
+                "You have changed the reminder interval. \nA restart of IntelliJ IDEA is required for the changes to take effect \uD83D\uDE09 .",
+                "Restart Required"
         );
-
-        if (result == Messages.YES) {
-            ApplicationManager.getApplication().restart();
-        }
     }
 
 
